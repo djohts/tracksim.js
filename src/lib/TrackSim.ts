@@ -1,4 +1,4 @@
-import type { MeResponse } from "../@types";
+import type { Company } from "../@types";
 import DriverManager from "./DriverManager";
 import type { AxiosInstance } from "axios";
 import axios from "axios";
@@ -30,13 +30,13 @@ class TrackSim {
     /**
      * Get information about your company.
      * @example
-     * const me = await tracksim.me();
-     * console.log(me);
-     * @returns {Promise<MeResponse>}
+     * const company = await tracksim.company();
+     * console.log(company);
+     * @returns {Promise<Company>}
      * @see https://docs.tracksim.app/docs/api/authentication#run-a-test
      */
-    async me(): Promise<MeResponse> {
-        const response = await this.AxiosInstance.get<MeResponse>("/me");
+    async company(): Promise<Company> {
+        const response = await this.AxiosInstance.get<Company>("/me");
         return response.data;
     };
 
