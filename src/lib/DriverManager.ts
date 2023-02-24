@@ -21,7 +21,7 @@ class DriverManager {
         if (!steamId) throw new Error("No Steam ID provided.");
         if (!steamId.length) throw new Error("Steam ID should be a non-empty string.");
 
-        const response = await this.TrackSim.AxiosInstance.post<Driver>("/drivers", {
+        const response = await this.TrackSim.AxiosInstance.post<Driver>("/drivers/add", {
             steam_id: steamId
         });
         return response.data;
@@ -41,7 +41,7 @@ class DriverManager {
         if (!steamId) throw new Error("No Steam ID provided.");
         if (!steamId.length) throw new Error("Steam ID should be a non-empty string.");
 
-        const response = await this.TrackSim.AxiosInstance.delete("/drivers", {
+        const response = await this.TrackSim.AxiosInstance.delete("/drivers/remove", {
             data: {
                 steam_id: steamId
             }
